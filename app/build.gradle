@@ -57,6 +57,7 @@ dependencies {
     implementation "com.facebook.fresco:fresco:$fresco"
     implementation "io.reactivex.rxjava2:rxjava:2.2.6"
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"

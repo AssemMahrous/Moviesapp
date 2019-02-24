@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviesapp.MvpApp
 import com.example.moviesapp.R
@@ -14,6 +15,7 @@ import com.example.moviesapp.data.network.models.Profile
 import com.example.moviesapp.data.network.models.Result
 import com.example.moviesapp.ui.adapters.PhotosAdapter
 import com.example.moviesapp.ui.base.BaseActivity
+import com.example.moviesapp.ui.fullScreenFragment.FullScreenFragment
 import com.example.moviesapp.utils.Constants
 import com.example.moviesapp.utils.ItemClickListener
 import kotlinx.android.synthetic.main.activity_details.*
@@ -85,6 +87,17 @@ class DetailsActivity : BaseActivity(), DetailsMvpView, ItemClickListener {
     }
 
     override fun OnItemClick(profile: Profile) {
-        Toast.makeText(this, R.string.toast_search, Toast.LENGTH_LONG).show()
+        val image = Constants().BASE_IMAGE_URL + profile.filePath
+        val fullScreenImageFragment = FullScreenFragment.newInstance(image)
+        addFragment(fullScreenImageFragment)
     }
+
+    private fun addFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(fragment_container.id, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 }

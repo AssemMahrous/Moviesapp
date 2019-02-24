@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit
 
 class SearchPresenter<V : SearchMvpView>(dataManager: AppDataManager) : BasePresenter<V>(dataManager),
     SearchMvpPresenter<V> {
+
     override fun destroy() {
         if (!compositeDisposable.isDisposed()) {
             compositeDisposable.dispose();
@@ -25,6 +26,7 @@ class SearchPresenter<V : SearchMvpView>(dataManager: AppDataManager) : BasePres
     }
 
     var compositeDisposable = CompositeDisposable()
+
     override fun getResultsQuery(searchView: SearchView) {
         val disposable: Disposable = getObservableQuery(searchView)
             .filter { s -> s != "" }
