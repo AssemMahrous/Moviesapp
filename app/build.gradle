@@ -27,14 +27,19 @@ android {
             buildConfigField 'String', "ApiKey", db_key
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 ext {
     retrofitVersion = '2.5.0'
     butterKnifeVersion = '8.8.1'
     fresco = '1.12.1'
-    espresso_version ='3.1.2-alpha01'
-    mockito_version ='2.24.5'
+    espresso_version = '3.1.2-alpha01'
+    mockito_version = '2.24.5'
 }
 
 

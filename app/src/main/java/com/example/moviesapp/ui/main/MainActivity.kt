@@ -12,6 +12,7 @@ import com.example.moviesapp.data.network.models.Result
 import com.example.moviesapp.ui.adapters.PeopleAdapter
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.details.DetailsActivity
+import com.example.moviesapp.ui.search.SearchActivity
 import com.example.moviesapp.utils.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -105,7 +106,8 @@ class MainActivity : BaseActivity(), MainMvpView {
     }
 
     override fun goToSearch() {
-        Toast.makeText(this, R.string.toast_search, Toast.LENGTH_LONG).show()
+        val intent = SearchActivity().getStartIntent(this)
+        startActivity(intent)
     }
 
 }
